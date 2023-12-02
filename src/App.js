@@ -15,17 +15,27 @@ import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
+import SearchIcon from '@mui/icons-material/Search';
+import InfoIcon from '@mui/icons-material/Info';
+import HelpIcon from '@mui/icons-material/Help';
+import { purple } from '@mui/material/colors';
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
   const [tabValue, setTabValue] = useState(0);
 
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   const theme = createTheme({
     palette: {
+      primary: purple,
       mode: darkMode ? 'dark' : 'light',
     },
   });
@@ -111,16 +121,18 @@ const App = () => {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <MenuIcon />
+              <FastfoodIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               is it healthy?
             </Typography>
-            <Tabs value={tabValue} onChange={handleTabChange}>
-              <Tab label="Main" />
-              <Tab label="How to Use" />
-              <Tab label="About Us" />
-            </Tabs>
+            {!isMobile && (
+              <Tabs value={tabValue} onChange={handleTabChange}>
+                <Tab label="Main" />
+                <Tab label="How to Use" />
+                <Tab label="About Us" />
+              </Tabs>
+            )}
             <ToggleButtonGroup
               value={darkMode ? 'dark' : 'light'}
               exclusive
@@ -141,6 +153,9 @@ const App = () => {
           <div className="content">
             {tabValue === 0 && (
               <>
+                <div style={{ textAlign: 'center', margin: '20px' }}>
+                  <FastfoodIcon style={{ width: '40%', height: '40%' }} />
+                </div>
                 <div className="search-container">
                   <TextField
                     id="searchInput"
@@ -191,6 +206,15 @@ const App = () => {
           </div>
         </Paper>
       </Container>
+      <Box sx={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }}>
+        <BottomNavigation
+          showLabels
+          value={tabValue} onChange={handleTabChange}>
+          <BottomNavigationAction label="Search" icon={<SearchIcon />} />
+          <BottomNavigationAction label="Info" icon={<HelpIcon />} />
+          <BottomNavigationAction label="About" icon={<InfoIcon />} />
+        </BottomNavigation>
+      </Box>
     </ThemeProvider>
   );
 };
