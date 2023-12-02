@@ -9,17 +9,24 @@ import Button from '@mui/material/Button';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [tabValue, setTabValue] = useState(0);
 
   const theme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
     },
   });
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
 
   const splitToList = (txt) => {
     return txt.split(',').map((item) => item.trim());
@@ -92,33 +99,58 @@ const App = () => {
         <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
           <div className="navbar">
             <Typography variant="h4">is it Healthy?</Typography>
+            <Tabs value={tabValue} onChange={handleTabChange}>
+              <Tab label="Main" />
+              <Tab label="How to Use" />
+              <Tab label="About Us" />
+            </Tabs>
           </div>
 
-          <div className="search-container">
-            <TextField
-              id="searchInput"
-              type="text"
-              className="search-input"
-              placeholder="Enter INS Codes"
-            />
-            <Button
-              id="searchButton"
-              variant="contained"
-              className="search-button"
-              onClick={handleSearch}
-            >
-              Search
-            </Button>
-          </div>
+          <div className="content">
+            {tabValue === 0 && (
+              <>
+                <div className="search-container">
+                  <TextField
+                    id="searchInput"
+                    type="text"
+                    className="search-input"
+                    placeholder="Enter INS Codes"
+                  />
+                  <Button
+                    id="searchButton"
+                    variant="contained"
+                    className="search-button"
+                    onClick={handleSearch}
+                  >
+                    Search
+                  </Button>
+                </div>
 
-          <h2 className="title">Side Effects:</h2>
-          <ul id="mainSideEffectsList" className="list">
-            {displaySideEffects()}
-          </ul>
+                <h2 className="title">Side Effects:</h2>
+                <ul id="mainSideEffectsList" className="list">
+                  {displaySideEffects()}
+                </ul>
 
-          <h2 className="title">Additional Information:</h2>
-          <div className="text-display">
-            <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
+                <h2 className="title">Additional Information:</h2>
+                <div className="text-display">
+                  <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
+                </div>
+              </>
+            )}
+
+            {tabValue === 1 && (
+              <div>
+                <h2>How to Use Guide</h2>
+                {/* Add content for the how-to-use guide */}
+              </div>
+            )}
+
+            {tabValue === 2 && (
+              <div>
+                <h2>About Us</h2>
+                {/* Add content for the About Us section */}
+              </div>
+            )}
           </div>
 
           <div className="footer">
