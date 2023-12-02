@@ -43,6 +43,78 @@ const App = () => {
     setTabValue(newValue);
   };
 
+  const licenseText_isItHealthy = `
+MIT License
+
+Copyright (c) 2023 Hirusha Adikari
+                
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+  `
+
+  const licenseText_react = `
+MIT License
+
+Copyright (c) Meta Platforms, Inc. and affiliates.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+  `
+
+  const licenseText_materialui = `
+The MIT License (MIT)
+
+Copyright (c) 2014 Call-Em-All
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+  `
+
   const splitToList = (txt) => {
     return txt.split(",").map((item) => item.trim());
   };
@@ -218,17 +290,110 @@ const App = () => {
           )}
 
           {tabValue === 1 && (
-            <div>
-              <h2>How to Use Guide</h2>
-              {/* Add content for the how-to-use guide */}
-            </div>
+            <>
+              <h1 className="center-stuff">Guide / Support</h1>
+              <div>
+                <h2>How to Use "Is It healthy?"</h2>
+                <p>
+                  Using our app and website is easy and efficient. The primary function of "Is It Healthy?" is to provide
+                  you
+                  with detailed information about food additives associated with INS and E-codes. Follow these simple
+                  steps to
+                  get started:
+                </p>
+                <ol>
+                  <li>
+                    <strong>Search Tab:</strong>
+                    In the middle tab of our app or website, you'll find the search bar. This
+                    is where you enter the INS and E-codes you want to investigate. You can enter multiple codes at
+                    once,
+                    separated by commas. No need to include "INS" or "E-" before the code. For example, simply input
+                    "100,
+                    104, 304" and click "Search."
+                  </li>
+                  <li>
+                    <strong>Search Results:</strong>
+                    Once you hit "Search," our system will process the codes and provide
+                    you with valuable information about each additive.
+                  </li>
+                </ol>
+                <h2>What You'll Find</h2>
+                <p>The search results will be displayed in two main sections:</p>
+                <ol>
+                  <li>
+                    <strong>Side Effects:</strong>
+                    In this section, you'll see the potential side effects associated with
+                    each INS or E-code you entered. We aim to provide you with a clear and concise summary of any known
+                    health concerns related to these additives.
+                  </li>
+                  <li>
+                    <strong>Detailed Information:</strong>
+                    In the second section, you will find comprehensive details about
+                    each additive. This includes information on its origin, common uses in food products, and regulatory
+                    approval status. This section is designed to give you a more in-depth understanding of the additive
+                    in
+                    question.
+                  </li>
+                </ol>
+              </div>
+
+              <h2>Note: I'm not responsible for the accuracy of data. It's all scraped from <a href="https://www.food-info.net/uk/index.htm">www.food-info.net</a></h2>
+            </>
           )}
 
           {tabValue === 2 && (
-            <div>
-              <h2>About Us</h2>
-              {/* Add content for the About Us section */}
-            </div>
+            <>
+              <h1 className="center-stuff">About</h1>
+              <div>
+                <p>
+                  Welcome to "Is it Healthy?" - your ultimate guide to making healthier choices and staying informed about
+                  the food you consume! In a world where artificial additives are prevalent in the majority of food items,
+                  it's crucial to understand the potential health risks they may pose. With our website, and the Android
+                  app, we provide you with the tools and information necessary to select your meals wisely.
+                  <br></br>
+                  <br></br>
+                  I recognize the importance of maintaining a healthy lifestyle through mindful eating. This platform
+                  empowers you to take control of your health by easily accessing information about the additives
+                  contained in the food you plan to purchase and consume. By simply entering the INS codes of additives
+                  found on food labels, you can instantly uncover the potential health risks associated with them.
+                  <br></br>
+                  <br></br>
+                  This user-friendly interface ensures that you can make informed decisions about the food you choose to
+                  eat. Whether you're at the grocery store, a restaurant, or planning your meals at home, "Is it Healthy?"
+                  gives you the peace of mind you deserve. By understanding the impact of additives on your health, you
+                  can take proactive steps towards a healthier, more nourishing lifestyle.
+                  <br></br>
+                  <br></br>
+                  Discover the hidden truths behind the food you eat and embark on a journey of informed and healthier
+                  choices with "Is it Healthy?" Start using my website, or my Android app today and take the first
+                  step towards a healthier you.
+                </p>
+                <br></br>
+                <h2 className="center-stuff">built by <a href="https://github.com/is-it-healthy">@hirushaadi</a></h2>
+                <hr></hr>
+                <div className="center-stuff code">
+
+                  <h1 className="center-stuff">License</h1>
+                  <pre style={{ overflowY: 'auto' }} dangerouslySetInnerHTML={{ __html: licenseText_isItHealthy }} />
+
+                  <h1 className="center-stuff">Other Licenses</h1>
+                  <h2 className="center-stuff">
+                    <a href="https://github.com/facebook/react/blob/main/LICENSE">
+                      React
+                    </a>
+                  </h2>
+                  <pre style={{ overflowY: 'auto', maxHeight: 'auto' }} dangerouslySetInnerHTML={{ __html: licenseText_react }} />
+
+                  <h2 className="center-stuff">
+                    <a href="https://github.com/mui/material-ui/blob/master/LICENSE">
+                      Material UI
+                    </a>
+                  </h2>
+                  <pre style={{ overflowY: 'auto', maxHeight: 'auto' }} dangerouslySetInnerHTML={{ __html: licenseText_materialui }} />
+                  <h2 className="center-stuff">built by @hirushaadi</h2>
+                </div>
+              </div>
+            </>
           )}
         </div>
       </Container>
@@ -241,7 +406,7 @@ const App = () => {
         >
           <BottomNavigationAction label="Search" icon={<SearchIcon />} />
           <BottomNavigationAction label="Guide" icon={<HelpIcon />} />
-          <BottomNavigationAction label="About" icon={<InfoIcon />} />
+          <BottomNavigationAction label="About Us" icon={<InfoIcon />} />
         </BottomNavigation>
       </Box>
     </ThemeProvider>
