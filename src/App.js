@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Container, Navbar, Form, FormControl, Button, ListGroup } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './data.json';
 
 const App = () => {
@@ -71,33 +69,32 @@ const App = () => {
   };
 
   return (
-    <Container>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>is it Healthy?</Navbar.Brand>
-      </Navbar>
+    <div>
+      <div className="navbar">
+        <h1>is it Healthy?</h1>
+      </div>
 
-      <Form className="search-container">
-        <FormControl
-          id="searchInput"
-          type="text"
-          placeholder="Enter INS Codes"
-          className="mr-sm-2"
-        />
-        <Button id="searchButton" variant="outline-success" onClick={handleSearch}>
+      <div className="search-container">
+        <input id="searchInput" type="text" className="search-input" placeholder="Enter INS Codes" />
+        <button id="searchButton" className="search-button" onClick={handleSearch}>
           Search
-        </Button>
-      </Form>
+        </button>
+      </div>
 
       <h2 className="title">Side Effects:</h2>
-      <ListGroup id="mainSideEffectsList">{displaySideEffects()}</ListGroup>
+      <ul id="mainSideEffectsList" className="list">
+        {displaySideEffects()}
+      </ul>
 
       <h2 className="title">Additional Information:</h2>
-      <div className="text-display">{displayAdditionalInformation()}</div>
+      <div className="text-display">
+        <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
+      </div>
 
       <div className="footer">
         <p>Made by Hirusha Adikari</p>
       </div>
-    </Container>
+    </div>
   );
 };
 
