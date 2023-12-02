@@ -11,6 +11,11 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 const App = () => {
@@ -95,17 +100,32 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>
-        <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
-          <div className="navbar">
-            <Typography variant="h4">is it Healthy?</Typography>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              is it Healthy?
+            </Typography>
             <Tabs value={tabValue} onChange={handleTabChange}>
               <Tab label="Main" />
               <Tab label="How to Use" />
               <Tab label="About Us" />
             </Tabs>
-          </div>
-
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Container>
+        <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
           <div className="content">
             {tabValue === 0 && (
               <>
