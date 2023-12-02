@@ -1,25 +1,8 @@
 import React, { useState } from 'react';
 import data from './data.json';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Typography from '@mui/material/Typography';
-
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
-
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-  });
 
   const splitToList = (txt) => {
     return txt.split(',').map((item) => item.trim());
@@ -86,55 +69,32 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container>
-        <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
-          <div className="navbar">
-            <Typography variant="h4">is it Healthy?</Typography>
-          </div>
+    <div>
+      <div className="navbar">
+        <h1>is it Healthy?</h1>
+      </div>
 
-          <div className="search-container">
-            <TextField
-              id="searchInput"
-              type="text"
-              className="search-input"
-              placeholder="Enter INS Codes"
-            />
-            <Button
-              id="searchButton"
-              variant="contained"
-              className="search-button"
-              onClick={handleSearch}
-            >
-              Search
-            </Button>
-          </div>
+      <div className="search-container">
+        <input id="searchInput" type="text" className="search-input" placeholder="Enter INS Codes" />
+        <button id="searchButton" className="search-button" onClick={handleSearch}>
+          Search
+        </button>
+      </div>
 
-          <h2 className="title">Side Effects:</h2>
-          <ul id="mainSideEffectsList" className="list">
-            {displaySideEffects()}
-          </ul>
+      <h2 className="title">Side Effects:</h2>
+      <ul id="mainSideEffectsList" className="list">
+        {displaySideEffects()}
+      </ul>
 
-          <h2 className="title">Additional Information:</h2>
-          <div className="text-display">
-            <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
-          </div>
+      <h2 className="title">Additional Information:</h2>
+      <div className="text-display">
+        <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
+      </div>
 
-          <div className="footer">
-            <p>Made by Hirusha Adikari</p>
-            <ToggleButtonGroup
-              value={darkMode ? 'dark' : 'light'}
-              exclusive
-              onChange={() => setDarkMode(!darkMode)}
-            >
-              <ToggleButton value="dark">Dark Mode</ToggleButton>
-              <ToggleButton value="light">Light Mode</ToggleButton>
-            </ToggleButtonGroup>
-          </div>
-        </Paper>
-      </Container>
-    </ThemeProvider>
+      <div className="footer">
+        <p>Made by Hirusha Adikari</p>
+      </div>
+    </div>
   );
 };
 
