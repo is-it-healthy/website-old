@@ -16,11 +16,12 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [tabValue, setTabValue] = useState(0);
 
   const theme = createTheme({
@@ -113,14 +114,25 @@ const App = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              is it Healthy?
+              is it healthy?
             </Typography>
             <Tabs value={tabValue} onChange={handleTabChange}>
               <Tab label="Main" />
               <Tab label="How to Use" />
               <Tab label="About Us" />
             </Tabs>
-            <Button color="inherit">Login</Button>
+            <ToggleButtonGroup
+              value={darkMode ? 'dark' : 'light'}
+              exclusive
+              onChange={() => setDarkMode(!darkMode)}
+            >
+              <ToggleButton value="dark">
+                <Brightness4Icon /> {/* Dark Mode Icon */}
+              </ToggleButton>
+              <ToggleButton value="light">
+                <Brightness7Icon /> {/* Light Mode Icon */}
+              </ToggleButton>
+            </ToggleButtonGroup>
           </Toolbar>
         </AppBar>
       </Box>
@@ -175,14 +187,7 @@ const App = () => {
 
           <div className="footer">
             <p>Made by Hirusha Adikari</p>
-            <ToggleButtonGroup
-              value={darkMode ? 'dark' : 'light'}
-              exclusive
-              onChange={() => setDarkMode(!darkMode)}
-            >
-              <ToggleButton value="dark">Dark Mode</ToggleButton>
-              <ToggleButton value="light">Light Mode</ToggleButton>
-            </ToggleButtonGroup>
+
           </div>
         </Paper>
       </Container>
