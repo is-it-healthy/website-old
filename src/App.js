@@ -3,7 +3,6 @@ import data from './data.json';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import ToggleButton from '@mui/material/ToggleButton';
@@ -25,6 +24,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import HelpIcon from '@mui/icons-material/Help';
 import { purple } from '@mui/material/colors';
+import Paper from '@mui/material/Paper';
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
@@ -111,8 +111,10 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
+
           <Toolbar>
             <IconButton
               size="large"
@@ -146,72 +148,79 @@ const App = () => {
               </ToggleButton>
             </ToggleButtonGroup>
           </Toolbar>
+
         </AppBar>
       </Box>
-      <Container>
-        <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
-          <div className="content">
-            {tabValue === 0 && (
-              <>
-                <div className='center-stuff'>
-                  <FastfoodIcon style={{
-                    width: '40%',
-                    height: '40%',
-                    color: darkMode ? 'white' : '#9c27b0'
-                  }} />
-                </div>
-                <div className="search-container center-stuff">
-                  <TextField
-                    id="searchInput"
-                    type="text"
-                    className="search-input"
-                    placeholder="Enter INS Codes"
-                    sx={{ height: '50px' }} // Set the desired height
-                  />
-                  <Button
-                    id="searchButton"
-                    variant="contained"
-                    className="search-button"
-                    onClick={handleSearch}
-                    sx={{ height: '55px' }} // Set the same height as TextField
-                  >
-                    <SearchIcon />
-                  </Button>
-                </div>
 
-                <h2 className="title">Side Effects:</h2>
+      <Container>
+        <div className="content">
+          {tabValue === 0 && (
+            <>
+              <div className='center-stuff'>
+                <FastfoodIcon style={{
+                  width: '40%',
+                  height: '40%',
+                  color: darkMode ? 'white' : '#9c27b0'
+                }} />
+              </div>
+              <div className="search-container center-stuff">
+
+                <h1 className="main-title">Search INS Codes</h1>
+
+                <TextField
+                  id="searchInput"
+                  type="text"
+                  className="search-input"
+                  placeholder="Enter INS Codes"
+                  sx={{ height: '50px' }} // Set the desired height
+                />
+                <Button
+                  id="searchButton"
+                  variant="contained"
+                  className="search-button"
+                  onClick={handleSearch}
+                  sx={{ height: '55px' }} // Set the same height as TextField
+                >
+                  <SearchIcon />
+                </Button>
+              </div>
+
+              <h1 className="main-title">Side Effects</h1>
+              <Paper variant="elevation" square={false} elevation={4}>
+                <h2 className="title" >Side Effects:</h2>
                 <ul id="mainSideEffectsList" className="list">
                   {displaySideEffects()}
                 </ul>
+              </Paper>
 
-                <h2 className="title">Additional Information:</h2>
-                <div className="text-display">
-                  <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
-                </div>
-              </>
-            )}
-
-            {tabValue === 1 && (
-              <div>
-                <h2>How to Use Guide</h2>
-                {/* Add content for the how-to-use guide */}
+              <h2 className="title">Additional Information:</h2>
+              <div className="text-display">
+                <ul id="additionalEffectsList">{displayAdditionalInformation()}</ul>
               </div>
-            )}
+            </>
+          )}
 
-            {tabValue === 2 && (
-              <div>
-                <h2>About Us</h2>
-                {/* Add content for the About Us section */}
-              </div>
-            )}
-          </div>
+          {tabValue === 1 && (
+            <div>
+              <h2>How to Use Guide</h2>
+              {/* Add content for the how-to-use guide */}
+            </div>
+          )}
 
-          <div className="footer">
-            <p>Made by Hirusha Adikari</p>
+          {tabValue === 2 && (
+            <div>
+              <h2>About Us</h2>
+              {/* Add content for the About Us section */}
+            </div>
+          )}
+        </div>
 
-          </div>
-        </Paper>
+        <div className="footer">
+          <p>Made by Hirusha Adikari</p>
+
+        </div>
       </Container>
+
       <Box sx={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }}>
         <BottomNavigation
           showLabels
@@ -221,6 +230,7 @@ const App = () => {
           <BottomNavigationAction label="About" icon={<InfoIcon />} />
         </BottomNavigation>
       </Box>
+
     </ThemeProvider>
   );
 };
