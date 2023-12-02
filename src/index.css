@@ -28,16 +28,6 @@ code {
   padding-bottom: 24px;
 }
 
-.data-title {
-  font-weight: bold;
-  color: #000;
-}
-
-.data-value {
-  color: #000;
-  /* font-size: 24px; */
-}
-
 ul,
 li {
   list-style-type: none;

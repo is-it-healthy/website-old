@@ -61,10 +61,10 @@ const App = () => {
     } else {
       return eCodesData.map((item) => (
         <li key={item.code} className="list-item">
-          <p class="data-title">
+          <h2>
             {item.code} ({item.name})
-          </p>
-          <p class="data-value">{item.more_info.side_effects}</p>
+          </h2>
+          <p>{item.more_info.side_effects}</p>
         </li>
       ));
     }
@@ -73,9 +73,9 @@ const App = () => {
   const displayAdditionalInformation = () => {
     if (eCodesData.length === 0) {
       return (
-        <li>
-          <h3>Please search to display results</h3>
-        </li>
+        <div className="data-curved-box">
+          <p className="center-stuff">Please search to display results</p>
+        </div>
       );
     } else {
       return eCodesData.map((item) => (
@@ -133,16 +133,16 @@ const App = () => {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <FastfoodIcon />
+              <FastfoodIcon style={{ color: "white" }} />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               is it healthy?
             </Typography>
             {!isMobile && (
               <Tabs value={tabValue} onChange={handleTabChange}>
-                <Tab label="Main" />
-                <Tab label="How to Use" />
-                <Tab label="About Us" />
+                <Tab style={{ color: "white" }} label="Search" />
+                <Tab style={{ color: "white" }} label="Guide" />
+                <Tab style={{ color: "white" }} label="About Us" />
               </Tabs>
             )}
             <ToggleButtonGroup
@@ -151,10 +151,10 @@ const App = () => {
               onChange={() => setDarkMode(!darkMode)}
             >
               <ToggleButton value="dark">
-                <Brightness4Icon /> {/* Dark Mode Icon */}
+                <Brightness4Icon style={{ color: "white" }} />
               </ToggleButton>
               <ToggleButton value="light">
-                <Brightness7Icon /> {/* Light Mode Icon */}
+                <Brightness7Icon style={{ color: "white" }} />
               </ToggleButton>
             </ToggleButtonGroup>
           </Toolbar>
@@ -168,8 +168,8 @@ const App = () => {
               <div className="center-stuff">
                 <FastfoodIcon
                   style={{
-                    width: "40%",
-                    height: "40%",
+                    width: "30%",
+                    height: "30%",
                     color: darkMode ? "white" : "#9c27b0",
                   }}
                 />
@@ -182,7 +182,7 @@ const App = () => {
                   type="text"
                   className="search-input"
                   placeholder="Enter INS Codes"
-                  sx={{ height: "50px" }} // Set the desired height
+                  sx={{ height: "50px", width: "80%" }} // Set the desired height
                 />
                 <Button
                   id="searchButton"
@@ -195,18 +195,24 @@ const App = () => {
                 </Button>
               </div>
 
+              <br></br>
               <h1 className="main-title">Side Effects</h1>
-              <div class="data-curved-box">
+              <div className="data-curved-box">
                 <ul id="mainSideEffectsList" className="list">
                   {displaySideEffects()}
                 </ul>
               </div>
 
+              <br></br>
               <h1 className="main-title">Additional Information</h1>
-              <div className="text-display">
+              <div>
                 <ul id="additionalEffectsList">
                   {displayAdditionalInformation()}
                 </ul>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
               </div>
             </>
           )}
@@ -225,10 +231,6 @@ const App = () => {
             </div>
           )}
         </div>
-
-        <div className="footer">
-          <p>Made by Hirusha Adikari</p>
-        </div>
       </Container>
 
       <Box sx={{ position: "fixed", bottom: 0, left: 0, width: "100%" }}>
@@ -238,7 +240,7 @@ const App = () => {
           onChange={handleTabChange}
         >
           <BottomNavigationAction label="Search" icon={<SearchIcon />} />
-          <BottomNavigationAction label="Info" icon={<HelpIcon />} />
+          <BottomNavigationAction label="Guide" icon={<HelpIcon />} />
           <BottomNavigationAction label="About" icon={<InfoIcon />} />
         </BottomNavigation>
       </Box>
