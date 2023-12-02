@@ -153,23 +153,29 @@ const App = () => {
           <div className="content">
             {tabValue === 0 && (
               <>
-                <div style={{ textAlign: 'center', margin: '20px' }}>
-                  <FastfoodIcon style={{ width: '40%', height: '40%' }} />
+                <div className='center-stuff'>
+                  <FastfoodIcon style={{
+                    width: '40%',
+                    height: '40%',
+                    color: darkMode ? 'white' : '#9c27b0'
+                  }} />
                 </div>
-                <div className="search-container">
+                <div className="search-container center-stuff">
                   <TextField
                     id="searchInput"
                     type="text"
                     className="search-input"
                     placeholder="Enter INS Codes"
+                    sx={{ height: '50px' }} // Set the desired height
                   />
                   <Button
                     id="searchButton"
                     variant="contained"
                     className="search-button"
                     onClick={handleSearch}
+                    sx={{ height: '55px' }} // Set the same height as TextField
                   >
-                    Search
+                    <SearchIcon />
                   </Button>
                 </div>
 
