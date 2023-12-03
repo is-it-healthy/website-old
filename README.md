@@ -61,13 +61,13 @@ serve -s build -l 3000
 Open your `package.json` and add a `homepage` field for your project:
 
 ```json
-  "homepage": "https://is-it-healthy.github.io/website",
+  "homepage": "https://is-it-healthy.github.io/website/",
 ```
 
 or for a custom domain page:
 
 ```json
-  "homepage": "https://food.hirusha.xyz",
+  "homepage": "https://food.hirusha.xyz/",
 ```
 
 Create React App uses the `homepage` field to determine the root URL in the built HTML file.
@@ -112,7 +112,21 @@ additional modification:
 +   "deploy": "gh-pages -b main -d build",
 ```
 
-### Step 3: Deploy the site by running `npm run deploy`
+### Step 3: Open Command Prompt
+
+```sh
+cmd
+```
+
+### Step 4: Set the github username
+
+Set your Git user credentials using the following command:
+
+```sh
+set GIT_USER=hirusha-adi
+```
+
+### Step 5: Deploy the site by running `npm run deploy`
 
 Then run:
 
