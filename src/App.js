@@ -343,6 +343,10 @@ SOFTWARE.
               </div>
 
               <h2>Note: I'm not responsible for the accuracy of data. It's all scraped from <a href="https://www.food-info.net/uk/index.htm">www.food-info.net</a></h2>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
             </>
           )}
 
