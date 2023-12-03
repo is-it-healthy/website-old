@@ -2,7 +2,7 @@
   "name": "is-it-healthy",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://is-it-healthy.github.io/website/",
+  "homepage": "https://food.hirusha.xyz/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",

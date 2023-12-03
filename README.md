@@ -133,7 +133,7 @@ You can configure a custom domain with GitHub Pages by adding a `CNAME` file to 
 Your CNAME file should look like this:
 
 ```
-mywebsite.com
+food.hirusha.xyz
 ```
 
 ### Notes on client-side routing
