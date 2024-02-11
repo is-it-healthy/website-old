@@ -1,13 +1,52 @@
 import React, { useState } from "react";
 import data from "./../../data.json";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import SearchIcon from "@mui/icons-material/Search";
+import { Button, Grid, Typography } from '@mui/material';
+import KeyboardIcon from '@mui/icons-material/Keyboard';
+import CameraIcon from '@mui/icons-material/Camera';
+
+const TypeCodes = () => {
+
+    const splitToList = (txt) => {
+        return txt.split(",").map((item) => item.trim());
+    };
+
+    const handleSearch = () => {
+        return splitToList(document.getElementById("searchInput").value);
+    };
+
+    return (
+        <>
+            <div className="search-container center-stuff">
+                <h1 className="main-title">Search INS Codes</h1>
+
+                <TextField
+                    id="searchInput"
+                    type="text"
+                    className="search-input"
+                    placeholder="Enter INS Codes"
+                    sx={{ height: "50px", width: "80%" }} // Set the desired height
+                />
+                <Button
+                    id="searchButton"
+                    variant="contained"
+                    className="search-button"
+                    onClick={handleSearch}
+                    sx={{ height: "55px" }} // Set the same height as TextField
+                >
+                    <SearchIcon />
+                </Button>
+            </div>
+        </>
+    );
+};
 
 const Search = () => {
 
     const [eCodesData, setECodesData] = useState([]);
+    const [isTypeMode, setTypeMode] = useState(true);
 
     const splitToList = (txt) => {
         return txt.split(",").map((item) => item.trim());
@@ -85,6 +124,14 @@ const Search = () => {
         setECodesData(eCodes);
     };
 
+    const handleTypeClick = () => {
+        setTypeMode(true);
+    };
+
+    const handleCaptureClick = () => {
+        setTypeMode(false);
+    };
+
     return (
         <>
             <div className="center-stuff">
@@ -97,26 +144,27 @@ const Search = () => {
                 />
             </div>
 
-            <div className="search-container center-stuff">
-                <h1 className="main-title">Search INS Codes</h1>
+            <div>
+                <Grid container alignItems="center" spacing={2}>
+                    <Grid item>
+                        <Typography variant="body1">Type</Typography>
+                        <Button onClick={handleTypeClick}>
+                            <KeyboardIcon />
+                        </Button>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="body1">Capture</Typography>
+                        <Button onClick={handleCaptureClick}>
+                            <CameraIcon />
+                        </Button>
+                    </Grid>
+                </Grid>
 
-                <TextField
-                    id="searchInput"
-                    type="text"
-                    className="search-input"
-                    placeholder="Enter INS Codes"
-                    sx={{ height: "50px", width: "80%" }} // Set the desired height
-                />
-                <Button
-                    id="searchButton"
-                    variant="contained"
-                    className="search-button"
-                    onClick={handleSearch}
-                    sx={{ height: "55px" }} // Set the same height as TextField
-                >
-                    <SearchIcon />
-                </Button>
+                {/* {isTypeMode ? <TypeCode /> : <Ocr />} */}
             </div>
+
+            <TypeCodes />
+
 
             <br></br>
             <h1 className="main-title">Side Effects</h1>
