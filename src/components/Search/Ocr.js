@@ -18,7 +18,6 @@ const Ocr = () => {
   };
 
   const handleButtonClick = () => {
-    // Trigger file input click event
     document.getElementById('fileInput').click();
   };
 
