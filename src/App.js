@@ -24,6 +24,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InfoIcon from "@mui/icons-material/Info";
 import HelpIcon from "@mui/icons-material/Help";
 import { purple } from "@mui/material/colors";
+import Ocr from "./Ocr"
 
 const App = () => {
   const [eCodesData, setECodesData] = useState([]);
@@ -251,6 +252,8 @@ SOFTWARE.
                   }}
                 />
               </div>
+              <Ocr/>
+
               <div className="search-container center-stuff">
                 <h1 className="main-title">Search INS Codes</h1>
 
